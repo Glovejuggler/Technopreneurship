@@ -8,6 +8,12 @@
     <title>{{ $application->app_name }}</title>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script> --}}
+    @yield('fullcalendar')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -133,7 +139,8 @@
                         </li>
                         @can('do-admin-stuff')
                         <li class="nav-item">
-                            <a href="{{ route('app.settings') }}" class="nav-link {{ Request::is('settings') ? 'active' : '' }}">
+                            <a href="{{ route('app.settings') }}"
+                                class="nav-link {{ Request::is('settings') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-cog"></i>
                                 <p>
                                     Settings

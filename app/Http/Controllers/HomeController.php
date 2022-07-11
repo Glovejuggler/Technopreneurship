@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -47,8 +48,10 @@ class HomeController extends Controller
                 $query->where('role_id','=',$role->id);
             })->count();
         }
+
+        $announcements = Announcement::orderBy('created_at', 'desc')->get();
         
         // return $count;
-        return view('home', compact('userCount','filecount', 'roles', 'count'));
+        return view('home', compact('userCount','filecount', 'roles', 'count', 'announcements'));
     }
 }

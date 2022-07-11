@@ -9,6 +9,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShareController;
 use App\Http\Controllers\FolderController;
+use App\Http\Controllers\AnnouncementController;
 
 
 /*
@@ -49,6 +50,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/settings', [Controller::class, 'settings'])->name('app.settings');
     Route::put('/update/settings', [Controller::class, 'update_settings'])->name('settings.update');
+
+    Route::post('/post/announcement', [AnnouncementController::class, 'store'])->name('announcement.store');
+    Route::delete('/announcement/delete/{announcement}', [AnnouncementController::class, 'destroy'])->name('announcement.destroy');
 });
 
 Route::middleware(['auth'])->group(function () {

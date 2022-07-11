@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             'address' => 'Calauan, Laguna',
             'role_id' => '1',
             'password' => Hash::make('admin123'),
+            'phone_number' => '9554881539',
         ]);
 
         DB::table('roles')->insert([
